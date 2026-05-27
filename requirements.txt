@@ -1,0 +1,6 @@
+skyfield
+requests
+tkintermapview
+Pillow
+rich
+pytest

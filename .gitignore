@@ -216,3 +216,7 @@ __marimo__/
 
 # Streamlit
 .streamlit/secrets.toml
+
+#runtime generations 
+assets/satellites.json
+assets/tle_data.csv
