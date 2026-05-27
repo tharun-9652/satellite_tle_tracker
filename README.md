@@ -32,7 +32,7 @@ pip install -r requirements.txt
 5. Run the application:
 
 ```bash
-python main.py
+python project.py
 ```
 
 ## Short Description
@@ -71,7 +71,7 @@ satellite-tle-tracker/
 |   |-- satellite_image_bg.png
 |-- fetch_satellite.py
 |-- map.py
-|-- main.py
+|-- project.py
 |-- requirements.txt
 |-- README.md
 |-- LICENSE
