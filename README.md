@@ -86,10 +86,6 @@ satellite-tle-tracker/
 5. TkinterMapView displays the satellite marker on the map.
 6. The marker refreshes automatically to show live movement.
 
-## LinkedIn Summary
-
-Built Satellite TLE Tracker, a personal Python project that uses live TLE data, Skyfield, and TkinterMapView to calculate and visualize real-time satellite positions on an interactive map.
-
 ## License
 
 This project is licensed under the MIT License.
