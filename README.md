@@ -2,7 +2,7 @@
 
 A personal Python desktop project that tracks satellites in real time using live TLE data from CelesTrak, Skyfield orbital calculations, and an interactive Tkinter map.
 
-## Installation
+## Installation  (for windows)
 
 1. Clone the repository:
 
