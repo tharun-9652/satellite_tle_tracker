@@ -11,16 +11,24 @@ def main():
     intrest_category = intrest()  # Fetch Intrests Category of the User
     group_category = group(intrest_category)  # Fetch Group category under the  selected intrest
     sat_name = check_error(satellite_name(group_category))  # Fetch Name of the satellite user wants to see the location of
+    if sat_name is None:          # None type check 
+        print("Please select another satellite, this one is not traceble")
+        return
     tle_data = check_error(satellite_tle(sat_name))
+    if tle_data is None:          # None type fix
+        print("Please select another satellite, this one is not traceble")
+        return
     root, widget, marker = tk_window(tle_data)
     update(root, widget, marker, tle_data)
     root.mainloop()
+
 def check_error(data):
     value, error = data
     if error != "":
         console.log(error)
         return
     return value
+
 def satellite_position(tle_data):  # source to learn "https://rhodesmill.org/skyfield/earth-satellites.html"
     ts = load.timescale()  # creates a Timescale object, idk to calculate relative times
     t = ts.now()  # Current time

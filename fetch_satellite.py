@@ -71,7 +71,7 @@ def group(category):
     index = fetch_index(f"Enter a valid S.No. of the {category} category: ", len(ids))
     return ids[index-1]
 
-def satellite_name(group):
+def satellite_name(group): 
     url = (
         f"https://celestrak.org/NORAD/elements/gp.php?GROUP={group}&FORMAT=json-pretty"
     )
@@ -108,7 +108,7 @@ def satellite_name(group):
     index = fetch_index("Enter a valid S.No. of the Satellite you want to track: ", len(satellite_names))
     return data[index - 1]["OBJECT_NAME"], ""
 
-def satellite_tle(name):
+def satellite_tle(name): #retieves tle data of the satellite 
     url = f"https://celestrak.org/NORAD/elements/gp.php?NAME={name}&FORMAT=tle"
     r, error = fetch_url(url)
     if r is None:
