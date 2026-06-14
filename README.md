@@ -7,7 +7,7 @@ A personal Python desktop project that tracks satellites in real time using live
 1. Clone the repository:
 
 ```bash
-git clone https://github.com/tharun-9652/satellite-tle-tracker.git
+git clone https://github.com/tharun-9652/satellite_tle_tracker.git
 cd satellite-tle-tracker
 ```
 
