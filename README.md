@@ -2,13 +2,13 @@
 
 A personal Python desktop project that tracks satellites in real time using live TLE data from CelesTrak, Skyfield orbital calculations, and an interactive Tkinter map.
 
-## Installation  (for windows)
+## Installation (for Windows)
 
 1. Clone the repository:
 
 ```bash
 git clone https://github.com/tharun-9652/satellite_tle_tracker.git
-cd satellite-tle-tracker
+cd satellite_tle_tracker
 ```
 
 2. Create a virtual environment:
@@ -33,6 +33,39 @@ pip install -r requirements.txt
 
 ```bash
 python project.py
+```
+
+## Installation (for Linux)
+
+1. Clone the repository:
+
+```bash
+git clone https://github.com/tharun-9652/satellite_tle_tracker.git
+cd satellite_tle_tracker
+```
+
+2. Create a virtual environment:
+
+```bash
+python3 -m venv venv
+```
+
+3. Activate the virtual environment:
+
+```bash
+source venv/bin/activate
+```
+
+4. Install dependencies:
+
+```bash
+pip install -r requirements.txt
+```
+
+5. Run the application:
+
+```bash
+python3 project.py
 ```
 
 ## Short Description
