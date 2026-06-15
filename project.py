@@ -8,17 +8,17 @@ from fetch_satellite import intrest, group, satellite_name, satellite_tle
         #FORMATTED USING BLACK#
 console = Console()
 def main():
-    intrest_category = intrest()  # Fetch Intrests Category of the User
-    group_category = group(intrest_category)  # Fetch Group category under the  selected intrest
+    intrest_category = intrest()                            # Fetch Intrests Category of the User
+    group_category = group(intrest_category)                # Fetch Group category under the  selected intrest
     sat_name = check_error(satellite_name(group_category))  # Fetch Name of the satellite user wants to see the location of
-    if sat_name is None:          # None type check 
+    if sat_name is None:                                    # None type check 
         print("Please select another satellite, this one is not traceble")
         return
     tle_data = check_error(satellite_tle(sat_name))
-    if tle_data is None:          # None type fix
+    if tle_data is None:                                    # None type fix
         print("Please select another satellite, this one is not traceble")
         return
-    root, widget, marker = tk_window(tle_data)
+    root, widget, marker = tk_window(tle_data, sat_name)
     update(root, widget, marker, tle_data)
     root.mainloop()
 
@@ -29,21 +29,20 @@ def check_error(data):
         return
     return value
 
-def satellite_position(tle_data):  # source to learn "https://rhodesmill.org/skyfield/earth-satellites.html"
-    ts = load.timescale()  # creates a Timescale object, idk to calculate relative times
-    t = ts.now()  # Current time
+def satellite_position(tle_data):                           # source to learn "https://rhodesmill.org/skyfield/earth-satellites.html"
+    ts = load.timescale()                                   # creates a Timescale object, idk to calculate relative times
+    t = ts.now()                                            # Current time
     satellite = EarthSatellite(
-        tle_data[1], tle_data[2], tle_data[0], ts
-    )  # Creating a satallite object
-    location = satellite.at(t)  # Satellite position in space
+        tle_data[1], tle_data[2], tle_data[0], ts           # Creating a satallite object
+) 
+    location = satellite.at(t)                              # Satellite position in space
     lat, lon = wgs84.latlon_of(
         location
-    )  # Convert space position into earths latitiude and longitude
-    return [lat.degrees, lon.degrees]  # returns latitude and longitude
+    )                                                       # Convert space position into earths latitiude and longitude
+    return [lat.degrees, lon.degrees]                       # returns latitude and longitude
 
 
-def tk_window(tle_data):
-    # create tkinter window
+def tk_window(tle_data, sat_name):                           # create tkinter window
     root = tk.Tk()
     root.geometry("1000x700")
     root.title("Satellite Live Location")
@@ -57,7 +56,7 @@ def tk_window(tle_data):
     satellite_icon = ImageTk.PhotoImage(
         Image.open("assets/satellite_image_bg.png").resize((100, 100))
     )
-    marker = widget.set_marker(lat, lon, icon=satellite_icon)
+    marker = widget.set_marker(lat, lon, icon=satellite_icon, text = sat_name)
     return root, widget, marker
 
 
